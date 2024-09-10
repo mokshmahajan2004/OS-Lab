@@ -1,0 +1,2 @@
+Hello, this is the original descriptor.
+And this is from the duplicated descriptor.
