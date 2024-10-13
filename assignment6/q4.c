@@ -2,20 +2,16 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
-
 int main() {
     pid_t pid;
     int status;
-
     // Fork a child process
     pid = fork();
-
     if (pid < 0) {
         // If fork() fails, print an error and exit
         perror("fork failed");
         exit(1);
     }
-
     if (pid == 0) {
         // Child process
         printf("Child process. PID = %d\n", getpid());
@@ -43,6 +39,5 @@ int main() {
 
         printf("Parent process is done.\n");
     }
-
     return 0;
 }
