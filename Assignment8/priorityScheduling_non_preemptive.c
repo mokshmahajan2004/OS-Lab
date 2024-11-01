@@ -6,7 +6,6 @@ void non_preemptive_priority(struct process p[], int n) {
     int time = 0, completed = 0, total_turnaround = 0, total_waiting = 0;
     while (completed < n) {
         int idx = -1, min_priority = 9999;
-        
         for (int i = 0; i < n; i++) {
             if (p[i].arrival <= time && p[i].burst > 0 && p[i].priority < min_priority) {
                 min_priority = p[i].priority;
@@ -29,7 +28,6 @@ void non_preemptive_priority(struct process p[], int n) {
     printf("Process\tArrival\tBurst\tPriority\tCompletion\tTurnaround\tWaiting\n");
     for (int i = 0; i < n; i++)
         printf("%d\t%d\t%d\t%d\t\t%d\t\t%d\t\t%d\n", i + 1, p[i].arrival, p[i].burst + p[i].waiting, p[i].priority, p[i].completion, p[i].turnaround, p[i].waiting);
-
     printf("\nAverage Turnaround Time: %.2f\nAverage Waiting Time: %.2f\n", (float)total_turnaround / n, (float)total_waiting / n);
 }
 int main() {
